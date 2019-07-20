@@ -351,7 +351,7 @@ let stickPath = UIBezierPath()
 stickPath.move(to: CGPoint(x: 320, y: 560))
 stickPath.addLine(to: CGPoint(x: 330, y: 560))
 stickPath.addLine(to: CGPoint(x: 693, y: 188))
-stickPath.addLine(to: CGPoint(x: 695, y: 190))
+stickPath.addLine(to: CGPoint(x: 700, y: 200))
 stickPath.addLine(to: CGPoint(x: 330, y: 590))
 stickPath.addLine(to: CGPoint(x: 300, y: 590))
 stickPath.close()
@@ -362,20 +362,27 @@ let stickView = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
 stickView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
 stickView.layer.mask = stickShapeLayer
 
-let linestickPath = UIBezierPath()
-linestickPath.move(to: CGPoint(x: 320, y: 557))
-linestickPath.addLine(to: CGPoint(x: 330, y: 557))
-linestickPath.addLine(to: CGPoint(x: 690, y: 185))
-linestickPath.addLine(to: CGPoint(x: 700, y: 190))
-linestickPath.addLine(to: CGPoint(x: 330, y: 595))
-linestickPath.addLine(to: CGPoint(x: 300, y: 595))
-linestickPath.close()
-
 let linestickShapeLayer = CAShapeLayer()
-linestickShapeLayer.path = linestickPath.cgPath
-let linestickView = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
-linestickView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
-linestickView.layer.mask = linestickShapeLayer
+linestickShapeLayer.path = stickPath.cgPath
+linestickShapeLayer.strokeColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1).cgColor
+linestickShapeLayer.lineWidth = 10
+linestickShapeLayer.fillColor = UIColor.clear.cgColor
+stickView.layer.addSublayer(linestickShapeLayer)
+
+//let linestickPath = UIBezierPath()
+//linestickPath.move(to: CGPoint(x: 320, y: 557))
+//linestickPath.addLine(to: CGPoint(x: 330, y: 557))
+//linestickPath.addLine(to: CGPoint(x: 690, y: 185))
+//linestickPath.addLine(to: CGPoint(x: 700, y: 190))
+//linestickPath.addLine(to: CGPoint(x: 330, y: 595))
+//linestickPath.addLine(to: CGPoint(x: 300, y: 595))
+//linestickPath.close()
+
+//let linestickShapeLayer = CAShapeLayer()
+//linestickShapeLayer.path = linestickPath.cgPath
+//let linestickView = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
+//linestickView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
+//linestickView.layer.mask = linestickShapeLayer
 
 
 //球棒矩形
@@ -428,7 +435,7 @@ backgroundView.addSubview(pupilrView)
 backgroundView.addSubview(pupillView)
 backgroundView.addSubview(mouthView)
 backgroundView.addSubview(noseView)
-backgroundView.addSubview(linestickView)
+//backgroundView.addSubview(linestickView)
 backgroundView.addSubview(stickView)
 backgroundView.addSubview(plankView)
 backgroundView.addSubview(splankView)
